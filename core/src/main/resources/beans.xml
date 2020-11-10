@@ -6,5 +6,9 @@
 
     <bean id="numberGenerator" class="org.martinzhekov.NumberGeneratorImpl"/>
 
+    <bean id="game" class="org.martinzhekov.GameImpl">
+    <constructor-arg ref="numberGenerator"/>
+    </bean>
+
 </beans>
 
