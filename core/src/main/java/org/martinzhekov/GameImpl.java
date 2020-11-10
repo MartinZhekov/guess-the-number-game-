@@ -1,8 +1,10 @@
 package org.martinzhekov;
 
-import org.apache.commons.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * Created by martinzhekov on 10.11.20
@@ -15,7 +17,7 @@ public class GameImpl implements Game {
 
     // == fields ==
     private NumberGenerator numberGenerator;
-    private int guessCount = 10;
+    private final int guessCount = 10;
     private int number;
     private int guess;
     private int smallest;
@@ -23,11 +25,8 @@ public class GameImpl implements Game {
     private int remainingGuesses;
     private boolean validNumberRange = true;
 
-    // == constructors ==
-    public GameImpl(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-    }
-
+    // == init ==
+    @PostConstruct
     @Override
     public void reset() {
         this.smallest = 0;
@@ -36,6 +35,15 @@ public class GameImpl implements Game {
         this.biggest = numberGenerator.getMaxNumber();
         this.number = numberGenerator.next();
         logger.debug("the number is {}", this.number);
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        logger.info("in Game preDestroy()");
+    }
+    // == public methods ==
+    public void setNumberGenerator(NumberGenerator numberGenerator){
+        this.numberGenerator = numberGenerator;
     }
 
     @Override
