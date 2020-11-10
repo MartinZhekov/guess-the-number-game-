@@ -10,23 +10,26 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 
 public class Main {
-    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
     private static final String CONFIG_LOCATION = "beans.xml";
 
     public static void main(String[] args) {
-        logger.info("Guess the number game");
+        log.info("Guess The Number Game");
 
         // create context (container)
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
+        ConfigurableApplicationContext context
+                = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
-        NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
+        NumberGenerator numberGenerator
+                = context.getBean("numberGenerator", NumberGenerator.class);
 
         // call method next() to get a random number
         int number = numberGenerator.next();
 
         // log generated number
-        logger.info("number = {}", number);
+        log.info("number = {}", number);
 
-        // close context
+        // close context (container)
+        context.close();
     }
 }
