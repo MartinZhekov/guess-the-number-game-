@@ -9,7 +9,7 @@ import java.util.Random;
  * Created by martinzhekov on 9.11.20
  */
 
-@Component
+
 public class NumberGeneratorImpl implements NumberGenerator{
     // == fields ==
     private final Random random = new Random();
