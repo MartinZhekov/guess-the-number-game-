@@ -20,6 +20,6 @@ public class NumberGeneratorImpl implements NumberGenerator{
 
     @Override
     public int getMaxNumber() {
-        return this.maxNumber;
+        return maxNumber;
     }
 }
