@@ -13,7 +13,7 @@ import javax.annotation.PreDestroy;
  * Created by martinzhekov on 10.11.20
  */
 
-@Component
+
 public class GameImpl implements Game {
     // == constants ==
     private static final Logger logger = LoggerFactory.getLogger(GameImpl.class);
