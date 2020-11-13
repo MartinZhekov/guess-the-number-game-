@@ -1,5 +1,7 @@
 package org.martinzhekov.config;
 
+import org.martinzhekov.GuessCount;
+import org.martinzhekov.MaxNumber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,12 +14,14 @@ public class GameConfig {
 
     //== bean methods ==
     @Bean
+    @MaxNumber
     public int maxNumber(){
         return this.maxNumber;
     }
 
     @Bean
-    public int guessCount(){
+    @GuessCount
+    public int guessCoun123t(){
         return guessCount;
     }
 }
