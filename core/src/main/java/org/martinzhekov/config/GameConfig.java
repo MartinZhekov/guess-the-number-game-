@@ -2,15 +2,22 @@ package org.martinzhekov.config;
 
 import org.martinzhekov.GuessCount;
 import org.martinzhekov.MaxNumber;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+import javax.annotation.Resource;
 
 @Configuration
+@PropertySource("classpath:config/game.properties")
 public class GameConfig {
     //== fields ==
-    private int maxNumber = 50;
+    @Value("${game.maxNumber}")
+    private int maxNumber;
 
-    private int guessCount = 8;
+    @Value("${game.guessCount}")
+    private int guessCount;
 
     //== bean methods ==
     @Bean
@@ -21,7 +28,7 @@ public class GameConfig {
 
     @Bean
     @GuessCount
-    public int guessCoun123t(){
+    public int guessCount(){
         return guessCount;
     }
 }
