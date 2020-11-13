@@ -1,6 +1,6 @@
 package org.martinzhekov.console;
 
-import org.martinzhekov.AppConfig;
+import org.martinzhekov.config.AppConfig;
 import org.martinzhekov.MessageGenerator;
 import org.martinzhekov.NumberGenerator;
 import org.slf4j.Logger;
