@@ -11,28 +11,42 @@ import javax.annotation.PostConstruct;
  */
 
 
-public class MessageGeneratorImpl implements MessageGenerator{
-   private static final Logger logger = LoggerFactory.getLogger(MessageGeneratorImpl.class);
+public class MessageGeneratorImpl implements MessageGenerator {
+    private static final Logger logger = LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
-
+    //== fields ==
     @Autowired
     private Game game;
     private final int guessCount = 10;
- 
+
     // == init ==
     @PostConstruct
-    public void init(){
+    public void init() {
         logger.info("game = {}", game);
     }
 
     // == public methods ==
     @Override
     public String getMainMessage() {
-        return "getMainMessage() called";
+        return String.format("Number is between %d and %d. Can you guess it", game.getSmallest(), game.getBiggest());
     }
 
     @Override
     public String getResultMessage() {
-        return "This is result message";
+        if(game.isGameWon()){
+            return "You guessed it! The number was " + game.getNumber();
+        }else if(game.isGameLost()){
+            return "You lost. The number was " + game.getNumber();
+        }else if(!game.isValidNumberRange()){
+            return "Invalid number range!";
+        }else if(game.getRemainingGuesses() == guessCount){
+            return "What is your first guess ?";
+        }else {
+            String direction = "Lower";
+            if (game.getGuess() < game.getNumber()) {
+                direction = "Higher";
+            }
+            return direction + "! You have " + game.getRemainingGuesses() + " guess left";
+        }
     }
 }
