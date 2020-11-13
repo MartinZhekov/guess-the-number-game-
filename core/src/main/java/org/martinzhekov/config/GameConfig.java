@@ -2,6 +2,7 @@ package org.martinzhekov.config;
 
 import org.martinzhekov.GuessCount;
 import org.martinzhekov.MaxNumber;
+import org.martinzhekov.MinNumber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,9 @@ public class GameConfig {
     @Value("${game.guessCount}")
     private int guessCount;
 
+    @Value("${game.minNumber}")
+    private int minNumber;
+
     //== bean methods ==
     @Bean
     @MaxNumber
@@ -30,5 +34,11 @@ public class GameConfig {
     @GuessCount
     public int guessCount(){
         return guessCount;
+    }
+
+    @Bean
+    @MinNumber
+    public int minNumber(){
+        return this.minNumber;
     }
 }
