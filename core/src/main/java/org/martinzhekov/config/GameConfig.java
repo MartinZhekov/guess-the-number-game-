@@ -5,12 +5,12 @@ import org.martinzhekov.MaxNumber;
 import org.martinzhekov.MinNumber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-import javax.annotation.Resource;
-
 @Configuration
+@ComponentScan(basePackages = "org.martinzhekov")
 @PropertySource("classpath:config/game.properties")
 public class GameConfig {
     //== fields ==

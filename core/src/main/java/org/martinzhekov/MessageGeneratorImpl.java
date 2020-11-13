@@ -3,6 +3,7 @@ package org.martinzhekov;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -10,13 +11,18 @@ import javax.annotation.PostConstruct;
  * Created by martinzhekov on 10.11.20
  */
 
-
+@Component
 public class MessageGeneratorImpl implements MessageGenerator {
     private static final Logger logger = LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
     //== fields ==
+    private final Game game;
+
+    // == constructor ==
     @Autowired
-    private Game game;
+    public MessageGeneratorImpl(Game game) {
+        this.game = game;
+    }
 
     // == init ==
     @PostConstruct
