@@ -1,7 +1,6 @@
 package org.martinzhekov;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,11 +11,9 @@ import javax.annotation.PreDestroy;
  * Created by martinzhekov on 10.11.20
  */
 
+@Slf4j
 @Component
 public class GameImpl implements Game {
-    // == constants ==
-    private static final Logger logger = LoggerFactory.getLogger(GameImpl.class);
-
     // == fields ==
     private final NumberGenerator numberGenerator;
     private final int guessCount;
@@ -44,12 +41,12 @@ public class GameImpl implements Game {
         this.remainingGuesses = this.guessCount;
         this.biggest = numberGenerator.getMaxNumber();
         this.number = numberGenerator.next();
-        logger.debug("the number is {}", this.number);
+        log.debug("the number is {}", this.number);
     }
 
     @PreDestroy
     public void preDestroy(){
-        logger.info("in Game preDestroy()");
+        log.info("in Game preDestroy()");
     }
 
     @Override
