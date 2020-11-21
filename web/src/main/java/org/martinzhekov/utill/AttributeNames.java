@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
  */
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class ViewNames {
-    public static final String HOME = "home";
-    public static final String PLAY = "play";
-    public static final String GAME_OVER = "game-over";
-
+public final class AttributeNames {
+    // constants ==
+    public static final String MAIN_MESSAGE = "mainMessage";
+    public static final String RESULT_MESSAGE = "resultMessage";
 }

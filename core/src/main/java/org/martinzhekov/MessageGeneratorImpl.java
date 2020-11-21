@@ -31,7 +31,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
     // == public methods ==
     @Override
     public String getMainMessage() {
-        return String.format("Number is between %d and %d. Can you guess it", game.getSmallest(), game.getBiggest());
+        return String.format("Number is between %d and %d. Can you guess it ?", game.getSmallest(), game.getBiggest());
     }
 
     @Override
