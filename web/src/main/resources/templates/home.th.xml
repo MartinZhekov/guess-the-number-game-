@@ -1,0 +1,8 @@
+<thlogic xmlns:th="http://www.thymeleaf.org">
+    <attr sell="#play-game"
+          th:href="@{__${T(org.martinzhekov.utill.GameMappings).PLAY}__}"
+          th:text="Play"/>
+    <attr sell="#footer" th:replace="~{fragments/footer :: footer}"/>
+
+</thlogic>
+

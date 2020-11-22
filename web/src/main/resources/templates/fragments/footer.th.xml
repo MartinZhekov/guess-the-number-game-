@@ -1,0 +1,3 @@
+<thlogic>
+    <attr sell="#footer" th:fragment="footer"/>
+</thlogic>

@@ -1,0 +1,7 @@
+<thlogic>
+    <attr sell="#head" th:replace="~{fragments/head :: headFragment}"/>
+    <attr sell="#main-message" th:text="${__${T(org.martinzhekov.utill.AttributeNames).MAIN_MESSAGE}__}"/>
+    <attr sell="#result-message" th:text="${__${T(org.martinzhekov.utill.AttributeNames).RESULT_MESSAGE}__}"/>
+    <attr sell="#game-form" th:action="@{__${T(org.martinzhekov.utill.GameMappings).PLAY}__}"/>
+    <attr sell="#footer" th:replace="~{fragments/footer :: footer}"/>
+</thlogic>

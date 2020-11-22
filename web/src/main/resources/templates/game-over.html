@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head id="head"">
     <meta charset="UTF-8">
     <title>Guess the Number Game</title>
 </head>
@@ -8,14 +8,14 @@
     <div align="center">
         <h1>Guess the Number</h1>
         <h2>Game Over</h2>
-        <h3 th:text="${__${T(org.martinzhekov.utill.AttributeNames).RESULT_MESSAGE}__}">Result message</h3>
+        <h3 id="result-message">Result message</h3>
         <h3>
-            <a th:href="@{__${T(org.martinzhekov.utill.GameMappings).RESTART}__}">Play Again</a>
+            <a id="restart">Play Again</a>
         </h3>
         <h3>
-            <a th:href="@{__${T(org.martinzhekov.utill.GameMappings).HOME}__}">Home</a>
+            <a id="homeId">Home</a>
         </h3>
-        <footer>
+        <footer id="footer">
             <p>Created by Martin Zhekov</p>
         </footer>
     </div>

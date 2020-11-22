@@ -1,0 +1,3 @@
+<thlogic>
+    <attr sell="#head" th:fragment="headFragment"/>
+</thlogic>
